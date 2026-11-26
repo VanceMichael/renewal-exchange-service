@@ -1,0 +1,86 @@
+{
+  "synthetic": true,
+  "commands": [
+    {
+      "id": "collect-A",
+      "operation": "collection",
+      "refs": [
+        "old-A"
+      ],
+      "request": {
+        "device": "old-A",
+        "station": "recycler-A"
+      },
+      "response_status": 504,
+      "observations": [
+        {
+          "state": "pending"
+        },
+        {
+          "state": "received",
+          "device": "old-A",
+          "custodian": "recycler-A"
+        }
+      ]
+    },
+    {
+      "id": "dismantle-A",
+      "operation": "dismantle",
+      "refs": [
+        "old-A"
+      ],
+      "request": {
+        "device": "old-A"
+      },
+      "response_status": 202,
+      "observations": [
+        {
+          "state": "dismantled",
+          "device": "old-A",
+          "at": "2026-12-05T10:02:00+08:00"
+        }
+      ]
+    },
+    {
+      "id": "subsidy-A",
+      "operation": "subsidy",
+      "refs": [
+        "quote-A",
+        "campaign-A"
+      ],
+      "request": {
+        "quote": "quote-A",
+        "amount": 50000
+      },
+      "response_status": 504,
+      "observations": [
+        {
+          "state": "pending"
+        },
+        {
+          "state": "paid",
+          "amount": 50000,
+          "voucher": "PV-A"
+        }
+      ]
+    },
+    {
+      "id": "deposit-refund-A",
+      "operation": "refund",
+      "refs": [
+        "quote-A"
+      ],
+      "request": {
+        "quote": "quote-A",
+        "amount": 30000
+      },
+      "response_status": 202,
+      "observations": [
+        {
+          "state": "failed",
+          "reason": "账户待确认"
+        }
+      ]
+    }
+  ]
+}

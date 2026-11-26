@@ -1,0 +1,124 @@
+{
+  "synthetic": true,
+  "records": [
+    {
+      "id": "campaign-A",
+      "kind": "campaign",
+      "refs": [],
+      "region": "east",
+      "categories": [
+        "fridge"
+      ],
+      "starts": "2026-12-01T00:00:00+08:00",
+      "ends": "2027-01-01T00:00:00+08:00",
+      "per_person_limit": 60000,
+      "subsidy": 50000
+    },
+    {
+      "id": "person-A",
+      "kind": "customer",
+      "refs": [],
+      "region": "east"
+    },
+    {
+      "id": "person-B",
+      "kind": "customer",
+      "refs": [],
+      "region": "west"
+    },
+    {
+      "id": "old-A",
+      "kind": "device",
+      "refs": [],
+      "owner": "person-A",
+      "serial": "SN-SYN-001",
+      "category": "fridge"
+    },
+    {
+      "id": "old-B",
+      "kind": "device",
+      "refs": [],
+      "owner": "person-A",
+      "serial": "SN-SYN-002",
+      "category": "fridge"
+    },
+    {
+      "id": "new-A",
+      "kind": "product",
+      "refs": [],
+      "category": "fridge",
+      "price": 360000
+    },
+    {
+      "id": "new-B",
+      "kind": "product",
+      "refs": [],
+      "category": "washer",
+      "price": 280000
+    },
+    {
+      "id": "quote-A",
+      "kind": "quotation",
+      "refs": [
+        "person-A",
+        "old-A",
+        "new-A",
+        "campaign-A"
+      ],
+      "residual": 15000,
+      "deposit": 30000,
+      "customer_acceptance": "with_subsidy"
+    },
+    {
+      "id": "quote-B",
+      "kind": "quotation",
+      "refs": [
+        "person-A",
+        "old-B",
+        "new-A",
+        "campaign-A"
+      ],
+      "residual": 12000,
+      "deposit": 0,
+      "customer_acceptance": "wait"
+    },
+    {
+      "id": "return-A",
+      "kind": "customer_request",
+      "refs": [
+        "quote-A"
+      ],
+      "action": "cancel",
+      "at": "2026-12-05T10:01:00+08:00"
+    },
+    {
+      "id": "inspection-A",
+      "kind": "inspection",
+      "refs": [
+        "old-A"
+      ],
+      "station": "recycler-A",
+      "observed_serial": "SN-SYN-001",
+      "category": "fridge",
+      "residual": 15000,
+      "checked_by": "collector-A"
+    },
+    {
+      "id": "delivery-A",
+      "kind": "delivery",
+      "refs": [
+        "quote-A"
+      ],
+      "carrier": "carrier-A",
+      "at": "2026-12-05T10:00:00+08:00",
+      "fact": "signed"
+    }
+  ],
+  "principals": {
+    "customer-A": "person-A",
+    "clerk-A": "retail",
+    "collector-A": "recycler-A",
+    "grant-A": "grant-review",
+    "cashier-A": "finance"
+  }
+}
